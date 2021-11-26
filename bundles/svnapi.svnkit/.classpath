@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry exported="true" kind="lib" path="lib/com.trilead.ssh2_1.0.0.build222_185.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.tmatesoft.sqljet_1.1.13.r1341.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.tmatesoft.svnkit_1.10.2.r10793.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
