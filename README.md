@@ -6,3 +6,6 @@ Information on Requirements, Installation, Development etc. is available in the 
 
 # License
 The source code for this project is licensed under Eclipse 1.0 license.
+
+# Install
+eclipse-Help-Install New Software-Add,Location:[http://dl.tlv8.cn/subclipse/](http://dl.tlv8.cn/subclipse/)
