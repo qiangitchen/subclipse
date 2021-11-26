@@ -1547,10 +1547,12 @@ For example:
 		<command
 			categoryId="org.tigris.subversion.subclipse.commandCategory"
 			name="%CommitCommand.label"
+			defaultHandler="org.tigris.subversion.subclipse.ui.action.local.CommitActionHandler"
 			id="org.tigris.subversion.subclipse.ui.commit" />
 		<command
 			categoryId="org.tigris.subversion.subclipse.commandCategory"
 			name="%UpdateCommand.label"
+			defaultHandler="org.tigris.subversion.subclipse.ui.action.local.UpdateActionHandler"
 			id="org.tigris.subversion.subclipse.ui.update" />
 		<command
 			categoryId="org.tigris.subversion.subclipse.commandCategory"
@@ -1639,6 +1641,19 @@ For example:
 			id="org.tigris.subversion.subclipse.ui.compareWithBase" />
 
 	</extension>
+	
+	<extension point="org.eclipse.ui.bindings">
+      <key
+      		commandId="org.tigris.subversion.subclipse.ui.commit"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="CTRL+ALT+C">
+      </key>
+      <key
+      		commandId="org.tigris.subversion.subclipse.ui.update"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="CTRL+ALT+U">
+      </key>
+   </extension>
 
    <extension
          point="org.eclipse.ui.preferenceTransfer">

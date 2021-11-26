@@ -18,6 +18,7 @@ import org.tigris.subversion.subclipse.ui.ISVNUIConstants;
 import org.tigris.subversion.subclipse.ui.Policy;
 import org.tigris.subversion.subclipse.ui.SVNUIPlugin;
 import org.tigris.subversion.subclipse.ui.conflicts.SVNConflictResolver;
+import org.tigris.subversion.subclipse.ui.console.SVNOutputConsoleFactory;
 import org.tigris.subversion.subclipse.ui.operations.UpdateOperation;
 import org.tigris.subversion.svnclientadapter.SVNRevision;
 
@@ -39,26 +40,27 @@ public class UpdateAction extends WorkbenchWindowAction {
     if (action != null && !action.isEnabled()) {
       action.setEnabled(true);
     } else {
-      IPreferenceStore store = SVNUIPlugin.getPlugin().getPreferenceStore();
-      IResource[] resources = getSelectedResources();
-      SVNConflictResolver conflictResolver =
-          new SVNConflictResolver(
-              resources[0],
-              store.getInt(ISVNUIConstants.PREF_UPDATE_TO_HEAD_CONFLICT_HANDLING_TEXT_FILES),
-              store.getInt(ISVNUIConstants.PREF_UPDATE_TO_HEAD_CONFLICT_HANDLING_BINARY_FILES),
-              store.getInt(ISVNUIConstants.PREF_UPDATE_TO_HEAD_CONFLICT_HANDLING_PROPERTIES),
-              store.getInt(ISVNUIConstants.PREF_UPDATE_TO_HEAD_CONFLICT_HANDLING_TREE_CONFLICTS));
-      UpdateOperation updateOperation =
-          new UpdateOperation(getTargetPart(), resources, SVNRevision.HEAD);
-      updateOperation.setDepth(depth);
-      updateOperation.setSetDepth(setDepth);
-      updateOperation.setForce(
-          store.getBoolean(ISVNUIConstants.PREF_UPDATE_TO_HEAD_ALLOW_UNVERSIONED_OBSTRUCTIONS));
-      updateOperation.setIgnoreExternals(
-          store.getBoolean(ISVNUIConstants.PREF_UPDATE_TO_HEAD_IGNORE_EXTERNALS));
-      updateOperation.setCanRunAsJob(canRunAsJob);
-      updateOperation.setConflictResolver(conflictResolver);
-      updateOperation.run();
+    	SVNOutputConsoleFactory.showConsole();
+        IPreferenceStore store = SVNUIPlugin.getPlugin().getPreferenceStore();
+        IResource[] resources = getSelectedResources();
+        SVNConflictResolver conflictResolver =
+            new SVNConflictResolver(
+                resources[0],
+                store.getInt(ISVNUIConstants.PREF_UPDATE_TO_HEAD_CONFLICT_HANDLING_TEXT_FILES),
+                store.getInt(ISVNUIConstants.PREF_UPDATE_TO_HEAD_CONFLICT_HANDLING_BINARY_FILES),
+                store.getInt(ISVNUIConstants.PREF_UPDATE_TO_HEAD_CONFLICT_HANDLING_PROPERTIES),
+                store.getInt(ISVNUIConstants.PREF_UPDATE_TO_HEAD_CONFLICT_HANDLING_TREE_CONFLICTS));
+        UpdateOperation updateOperation =
+            new UpdateOperation(getTargetPart(), resources, SVNRevision.HEAD);
+        updateOperation.setDepth(depth);
+        updateOperation.setSetDepth(setDepth);
+        updateOperation.setForce(
+            store.getBoolean(ISVNUIConstants.PREF_UPDATE_TO_HEAD_ALLOW_UNVERSIONED_OBSTRUCTIONS));
+        updateOperation.setIgnoreExternals(
+            store.getBoolean(ISVNUIConstants.PREF_UPDATE_TO_HEAD_IGNORE_EXTERNALS));
+        updateOperation.setCanRunAsJob(canRunAsJob);
+        updateOperation.setConflictResolver(conflictResolver);
+        updateOperation.run();
     }
   }
 
