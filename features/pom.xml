@@ -7,13 +7,12 @@
     <parent>
         <groupId>org.tigris.subclipse</groupId>
         <artifactId>org.tigris.subclipse.root</artifactId>
-        <version>4.3.4-SNAPSHOT</version>
+        <version>4.3.5-SNAPSHOT</version>
     </parent>
 
     <modules>
         <module>feature.subclipse</module>
         <module>feature.graph</module>
-        <module>feature.mylyn</module>
         <module>feature.svnkit</module>
     </modules>
 </project>

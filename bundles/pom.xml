@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.tigris.subclipse</groupId>
         <artifactId>org.tigris.subclipse.root</artifactId>
-        <version>4.3.4-SNAPSHOT</version>
+        <version>4.3.5-SNAPSHOT</version>
     </parent>
 
     <modules>
@@ -17,6 +17,5 @@
         <module>subclipse.ui</module>
         <module>subclipse.merge</module>
         <module>subclipse.graph</module>
-        <module>subclipse.mylyn</module>
     </modules>
 </project>
